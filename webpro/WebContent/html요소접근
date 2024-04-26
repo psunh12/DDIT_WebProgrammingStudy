@@ -1,0 +1,39 @@
+html요소 검색하기
+
+1.	id이름을 이용하여 검색하기
+	var a = document.getElementById('id이름')
+	(변수a)
+	
+	var a = document.querySelector('#id이름')
+	
+
+2.	class 이름을 이용하여 검색
+	var b =document.getElementsByclassName('class이름')  //리스트
+	b[0],b[1]
+	
+	var a =document.querySelector('.class이름')	//결과는 한개
+	var a =document.querySelectorAll('.class이름') //결과는 리스트로 나온다
+	a[0],a[1],a[2]
+
+	
+3.	name을 이용하여 검색하기
+	var b =document.getElementsByclassName('class이름') //결과는 리스트 b[0],b[1],
+4.	tag이름을 이용하여 검색하기
+	var a =document.getElementsByTagName('tag이름') //리스트 a[0],a[1],a[2]
+	var a =document.querySelector('tag이름')	//결과는 한개 a
+	var a =document.querySelectorAll('tag이름') //리스트 a[0],a[1],a[2]
+	
+	
+	//값 가져오기
+	
+	innerHTML - h1, div, span, p, td, th
+	innerText/TextContent - h1, div, span, p, td, th
+	
+	value - input요소, textarea, select 에서 값 가져오기 
+	
+	//출력 -setter
+	
+	innerHTML(html이 포함 유) = 값 - h1, div, span, p, td, th
+	innerText(html이 포함 무) = 값 /TextContent = 값 - h1, div, span, p, td, th
+	
+	value = 값 - input요소, textarea, select 에서 값 가져오기 

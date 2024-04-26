@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부스타일 -->
+<link rel = "stylesheet" href="../css/public.css">
+
+<script>
+today =new Date();
+now = today.toLocaleString();
+
+// 이거 없으면 오류남 ㅎ ㅎ
+window.onload = function(){
+	// id=result1 검색
+	vres = document.getElementById('result1')
+	vres.innerHTML = today + "<br>";
+	vres.innerHTML += now+"<br>";	
+	
+}
+
+</script>
+</head>
+<body>
+<div id ="result1"></div>
+</body>
+</html>

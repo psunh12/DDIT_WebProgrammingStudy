@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div{
+  height : auto;
+}
+img{
+  width : 100px;
+  height : 100px;
+  margin : 5px;
+}
+</style>
+<script>
+
+vimg = null;
+
+proc1 =(start) =>{
+	// start: 지역변수, 매개변수, 시작버튼을 가리킴
+	globalstart = start;
+	
+	// 테두리 설정된 요소가 있는지 체크
+		if(vimg != null) vimg.style.border = "none";
+	
+	
+	// result1 검색, 첫번째 자식 이미지를 선택
+	res1 = document.querySelector('#result1');
+	
+	idx = setInterval(function(){
+		child= res1.getElementsByTagName('img')[0];
+		res1.appendChild(child);
+	},500);
+	// 시작버튼 안보이게 한다 - 시작버튼 검색, this를 매개변수로 받거나
+// 	start = document.querySelector("input[value=시작]");
+	start.style.display = "none";
+	
+}
+
+proc2 = () => {
+	// 시작버튼 보이게 ~ 하기
+	globalstart.style.display="inline";
+	clearInterval(idx);
+	
+	img=document.querySelectorAll('#result1 img');
+	
+	rand = parseInt(Math.random()*img.length);
+	
+	// 랜덤으로 선택한 이미지-당첨 이미지
+	vimg =img[rand];
+	
+	img[rand].style.border="4px double red";
+}
+</script>
+</head>
+<body>
+
+<div>
+  시작 : 첫번째 이미지 선택-뒤로 추가. 1초마다 한번씩 수행한다. 시작버튼 감추기<br>
+  종료 : 시작 실행을 종료, 시작버튼을 보이기 <br>
+  <br>
+  <input type="button" value="시작" onclick="proc1(this)">
+  <input type="button" value="종료" onclick="proc2()">
+  <br>
+  <br>
+  <div id="result1" class="result">
+    <img src="../images/Tulips.jpg" alt="Tulips.jpg">
+    <img src="../images/국화.jpg" alt="국화.jpg">
+    <img src="../images/수국.jpg" alt="수국.jpg">
+    <img src="../images/의점이.jpg" alt="의점이.jpg">
+    <img src="../images/카페라떼.jpg" alt="카페라떼.jpg">
+    <img src="../images/펭귄.jpg" alt="펭귄.jpg">
+  </div>
+</div>
+</body>
+</html>
+
+

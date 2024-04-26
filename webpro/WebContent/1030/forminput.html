@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<style>
+label{
+	display: inline-block;
+	widows:110px;
+	height: 30px; 
+
+}
+
+form{
+	border :2px solid blue;
+	
+/* 	margin:30px; */
+	margin:30px auto;
+	padding: 10px;
+	width:40%;
+	
+}
+
+h3{
+text-align: center;
+border: 2px dotted green;
+}
+div{
+	border:1px dotted red;
+	padding: 20px;
+}
+</style>
+<script>
+// 리턴이 있으면 적고, 없으면 안적어도 됨
+function pro1(){
+	//세미콜론 안찍어도 오류는 나지 않는다
+	//html요소에 접근 검색 - id를 이용
+	var vid = document.getElementById('id');
+	var vname = document.getElementById('name');
+	
+	var vqty=document.querySelector('#qty');
+	var vprice=document.querySelector('#price');
+	
+	
+	
+	
+	//검색요소의 입력하거나 선택한 값을 가져온다 - 결과값은 String
+	//var 생략가능
+	
+	vvid=vid.value;
+	vvname= vname.value;
+//	vsum=parseInt(vqty.value)*parseInt(vprice.value);
+	
+	//출력내용
+	var str = "이름: "+ vvid+"<br>";
+	str += "이름: "+vvname+"<br>";
+	str += "수량: "+ parseInt(vqty.value)+"<br>";
+	str += "가격: "+ parseInt(vprice.value)+"<br>";
+	
+	str += "총금액: "+ parseInt(vqty.value)*parseInt(vprice.value)+"<br>";
+	
+	//출력장소검색
+//  	var res = document.getElementsByTagName('div')
+// 	res[0].innerHTML =str;
+
+//---------------------------------------------	
+// 	var res = document.querySelector('div')
+// 	res.innerHTML=str;
+//---------------------------------------------	
+
+// 	var res = document.getElementById('result')
+	var res = document.querySelector('#result')	
+	res.innerHTML=str;
+	
+
+}
+
+</script>
+
+
+</head>
+
+
+<body>
+<form action="forminput.jsp" method="post">
+
+
+	<label>아이디</label>
+	<input type="text" name="id" size="30"><br>
+	
+	<label>이름</label>
+	<input type="text" name="name"><br>
+	
+	
+	
+	<label>성별</label>
+<!-- 	radio는 하나만 checked가능 동시에 한다면 마지막꺼만 됨.-->
+	<input type="radio" value="남자" name="gender" checked="checked">남자
+	<input type="radio" value="여자" name="gender">여자
+	
+	<br>
+<!-- 	체크박스는 여러개 가능 -->
+	<label>좋아하는 과일</label>
+	<input type="checkbox" value="사과" name="fruit" checked="checked">사과
+	<input type="checkbox" value="복숭아" name="fruit" checked>복숭아
+	<input type="checkbox" value="포도" name="fruit">포도
+	<input type="checkbox" value="참외" name="fruit">참외
+	<input type="checkbox" value="키위" name="fruit">키위
+	<input type="checkbox" value="파인애플" name="fruit">파인애플
+	<br>
+	
+	
+
+	<label>자기소개</label><br>
+	<textarea rows="10" cols="50" name="area"></textarea>
+	<br>
+	<br>
+	<input type="file" name="file" accept="text/html">
+	<br><br>
+	
+	
+	
+	<input type = "submit" value="전송">
+	<input type = "reset" value="취소">
+
+
+</form>
+
+
+<hr color="red">
+<h3>입력한 값을 javascript에서 계산</h3>
+<!-- 인라인 스타일 따로지정 -->
+<form style="border:5px solid green;">
+
+
+	<label>아이디</label>
+	<input type="text" name="id" id="id"><br>
+	
+	<label>이름</label>
+	<input type="text" name="name" id="name"><br>
+
+
+	<label>수량</label>
+	<input type="number" id="qty" min="0" max="100" step= "10" value ="" name="qty"><br>
+	
+	<label>가격</label>
+	<input type="number" id="price" min="1" max="10000" value="100" name="price"><br>
+	
+	<input type="button" value="확인" onclick="pro1()">
+	<input type="reset">
+
+</form>
+
+<br><br>
+<h3>결과출력</h3>
+<div id="result"></div>
+
+
+</body>
+</html>

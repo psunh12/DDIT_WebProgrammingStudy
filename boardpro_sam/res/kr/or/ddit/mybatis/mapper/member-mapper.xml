@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  이 문서는 MyBatis에서 처리할 SQL문을 작성하는 문서입니다. -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+   
+   <!-- 전체데이타 가져오기 -->
+	<select id="getAllMember" resultType="memVo">
+		select * from member
+	</select>
+	
+
+ <!--아이디 중복검사   -->
+  <select id="selectById" resultType="string" parameterType="string">
+    select mem_id from member where mem_id=#{data}
+  </select>
+ 
+ <!-- 저장하기 - 회원가입하기  실행된 행의 갯수가 리턴  -->
+ <insert id="insertMember" parameterType="memVo">
+   insert into member(
+          mem_id, mem_pass, mem_name, 
+          mem_bir, mem_zip, mem_add1,
+          mem_add2, mem_hp, mem_mail
+   )values(
+          #{mem_id}, #{mem_pass}, #{mem_name}, 
+          #{mem_bir}, #{mem_zip}, #{mem_add1},
+          #{mem_add2}, #{mem_hp}, #{mem_mail}
+   )
+   
+   
+ </insert>
+	
+<!-- 우편번호 찾기 -->
+ <select id="selectByDong" parameterType="string" resultType="zipVO">
+    select * from ziptb where dong  like  '%'||#{data}||'%'
+ </select>
+
+
+
+<!-- 로그인 -->
+<select id="loginProc" resultType="memVo"  parameterType="map">
+   select mem_id, mem_pass, mem_name 
+    from member where mem_id=#{mem_id} and mem_pass=#{mem_pass}
+</select>
+	<!--
+		* Map을 파라미터로 받아서 처리할 때의 변수명 역할을 Map의 key값으로 한다.
+		* key값 정보 ==> 회원ID (MEMID), 수정할 컬럼명 (FIELD), 수정할 데이터(DATA)
+		
+		* 파라미터로 가져온 값을 테이블명이나 컬럼명 등의 자리에서 사용할 경우에는
+		  달러($)기호를 사용해서 작성한다.
+		  (예) ${변수명} 또는 ${key값} 
+	-->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+

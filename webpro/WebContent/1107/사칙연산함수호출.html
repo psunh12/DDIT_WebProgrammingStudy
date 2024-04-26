@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+function add(){
+	var sum=xvalue+yvalue;
+	return sum;
+}
+function sub(){
+	var vsub=xvalue-yvalue;
+	return vsub;
+}
+function multi(){
+	return xvalue * yvalue;
+}
+function divide(){
+	return xvalue / yvalue;
+}
+function proc1(a){
+	// id=x- 값 가져오기
+	xvalue=parseInt(document.querySelector('#x').value);
+	// id=y 검색 - 값 가져오기
+	yvalue=parseInt(document.querySelector('#y').value);
+	
+	// 비교
+	switch(a){
+	case '+' :
+		res = add();
+		break;
+	case '-' :
+		res = sub();
+		break;
+	case '*' :
+		res = multi();
+		break;
+	case '/' :
+		res=divide();
+		break;
+	}
+
+	// id=result 검색-출력
+	document.getElementById('result').value=res;	
+}
+
+</script>
+</head>
+<body>
+첫번째 수<input type="text" id="x" value="10"><br>
+두번째 수<input type="text" id="y" value="20"><br>
+<br>
+결과<input type="text" id="result"><br><br>
+<input type="button" value="확인+" onclick="proc1('+')">
+<input type="button" value="확인-" onclick="proc1('-')">
+<input type="button" value="확인*" onclick="proc1('*')">
+<input type="button" value="확인/" onclick="proc1('/')">
+<br><br>
+</body>
+</html>

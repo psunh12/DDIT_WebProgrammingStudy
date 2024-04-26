@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css/public.css">
+
+<style>
+div{
+   height: auto;
+}
+.result{
+   background: white;
+}
+</style>
+<script>
+const rect = {
+   garo : 5,
+   sero : 2,
+   getArea(){
+      return this.garo * this.sero;
+   },
+   getCircum(){
+      return (this.garo + this.sero) * 2;
+   }
+   /*getArea : funciton(){
+      return this.garo * this.sero;
+   },
+   getCircum : function(){
+      return (this.garo + this.sero) * 2;
+   }*/
+}
+printRect = function(result){
+   
+   //출력 형식
+   res = `가로 : ${rect.garo} <br>`;
+   res += `세로 : ${rect.sero} <br>`;
+   res += `이름 : ${rect.name} <br>`;
+   
+   area = rect.getArea();
+   circum = rect.getCircum();
+   
+   res += `면적 : ${area} <br>`;
+   res += `둘레 : ${circum} <br>`;
+   
+   document.getElementById(result).innerHTML =res;
+}
+proc1 = function(){
+      
+   rect.name = "네모";//name이 rect안에 없어도 동적으로 추가가 가능하다
+   //출력
+   printRect('result1');
+   
+}
+
+proc2 = function(){
+   //가로입력
+   in1 = parseInt(prompt("가로 입력"));
+   //세로입력
+   in2 = parseInt(prompt("세로 입력"));
+   //이름입력
+   rectName = prompt("이름 입력");
+   
+   //입력 받은 값을 rect객체의 garo, sero 속성에 대입
+   //rect name에 대입 - 동적으로 name속성을 추가 하여 사용 가능하다
+   rect.garo = in1;
+   rect.sero = in2;
+   rect.name = rectName;
+   
+   //출력 함수 호출
+   printRect('result2');
+}
+
+</script>
+</head>
+<body>
+<div>
+   rect 객체 선언 <br>
+   속성 : garo, sero <br>
+   메서드 : getArea(), getCircum()<br> <br>
+   <input type="button" value= "확인" onclick="proc1()">
+   <br>
+   <br>
+<div id = "result1" class = "result"></div>
+</div>
+
+<div>
+  rect 객체 선언 <br>
+    속성 : garo, sero <br>
+    메서드 : getArea(), getCircum()<br> <br>
+    가로 세로 입력받기<br> 
+   <input type="button" value= "확인" onclick="proc2()">
+   <br>
+   <br>
+<div id = "result2" class = "result"></div>
+</div>
+</html>

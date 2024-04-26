@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+label{
+	display: inline-block;
+	width :150px;
+	height :30px;
+}
+h2{
+	text-align : center ;
+}
+fieldset{
+	border :5px outset #B0C4DE;
+	margin:30px auto;
+	width:440px;
+}
+input[type="submit"],
+input[type="reset"] {
+    width: 200px;
+    height: 30px;
+}
+</style>
+</head>
+<body>
+<form action ="formfieldset.jsp" method="post">
+
+	<h2>회원가입 페이지</h2>
+	<fieldset>
+		<legend>회원정보입력</legend>
+		
+		<label>아이디</label>
+		<input type="text" name="id" id="id" required="required"> <input type="button" value="중복검사"><br>
+		
+		<label>비밀번호</label>
+		<input type="password" name="pw" id="pw" required="required"> <br>
+
+		<label>비밀번호 확인</label>
+		<input type="password" name="pwcheck" id="pwcheck" required="required"> <br>
+
+		<label>이름</label>
+		<input type="text" name="name" id="name" placeholder="홍길동" required="required"> <br>
+
+		<label>휴대폰번호</label>
+		<input type="text" name="tel" id="tel" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="010-1234-5678"> <br>
+		
+		<label>이메일</label>
+		<input type="email" name="mail" id="mail" placeholder="abc123@google.com" pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"> <br>
+		
+		<label>생일</label>
+		<input type="date" name="date" id="date"><br>
+		
+		<label>홈페이지</label>
+		<input type="text" name = "homepage" placeholder="www.google.com"><br>
+		
+		<label>성별</label>
+		<input type="radio" name="gender" class="gender">남자
+		<input type="radio" name="gender" class="gender">여자
+		<br>
+		<input type="submit">
+		<input type="reset">
+	</fieldset>	
+</form>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shop Page</title>
+<style>
+div, header, nav, aside, section, footer {
+	box-sizing: border-box;
+	border: 1px solid #B0E0E6;
+}
+
+header, footer {
+	background: #B0C4DE;
+	text-align: center;
+	padding: 5px;
+}
+
+header {
+	height: 80px;
+}
+
+footer {
+	height: 35px;
+}
+
+ul {
+	border: 8px;
+	list-style-type: none;
+	paddig: 5px;
+	height: 90px;
+}
+ul li a{
+	
+	letter-spacing:5px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+nav {
+	height: 65px;
+}
+
+nav ul li {
+	width: 15%;
+	float: left;
+	margin: 15px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+main {
+	display: flex;
+}
+
+aside div ul {
+	width: 100px;
+	height: 300px;
+}
+
+aside {
+	padding: 10px;
+	width: 350px;
+	height: 500px;
+}
+iframe{
+	width: 1000px;
+	height: 490px;
+}
+aside li {
+	background: #B0C4DE;
+	margin: 1px;
+	padding: 13px;
+	height: 30px;
+	width: 260px;
+	text-align: left;
+}
+label{
+	display : inline-block;
+	width : 70px;
+	height: 30px;
+}
+#login, #cart{
+	background: #B0C4DE;
+	padding:10px;
+	height:240px;
+}
+#left {
+	padding:20px 20px 2px 2px;
+	text-align: center;
+}
+input[type="submit"],
+input[type="reset"] {
+    width: 100px;
+    height: 25px;
+}
+</style>
+</head>
+<body>
+	<div>
+		<header>
+			<h1>Web Shopping</h1>
+		</header>
+		<nav>
+			<ul id="title">
+				<li><a href="main.html">HOME</a></li>
+				<li>SHOPPING ABOUT</li>
+				<li>NEWS</li>
+				<li>MY ACCOUNT</li>
+				<li>CONTACTS</li>
+			</ul>
+		</nav>
+		<main>
+			<aside id="left">
+				<h3>카테고리</h3>
+				<ul>
+					<li><a href="computer.html" target="ifr">컴퓨터</a></li>
+					<li><a href="clothing.html" target="ifr">의류</a></li>
+					<li><a href="음악.html" target="ifr">음악</a></li>
+					<li><a href="영화.html" target="ifr">영화</a></li>
+					<li><a href="스포츠.html" target="ifr">스포츠/레저</a></li>
+					<li><a href="가구.html" target="ifr">가구/인테리어</a></li>
+					<li><a href="식품.html" target="ifr">식품</a></li>
+				</ul>
+			</aside>
+			<section id="main">
+				<article id="article1">
+					<iframe src="computer.html" name="ifr"></iframe>
+				</article>
+			</section>
+			<aside id="right">
+				<div id="cart">
+					<h3>Shopping Cart</h3>
+					현재 쇼핑카드에 물품이 없습니다.<br>
+					<oi><a href="shopcart.html" target="_blank">쇼핑카트 보기</a></oi>
+					<br>
+				</div>
+				<div id="login">
+					<h3>Log In</h3>
+					<form>
+						<label>아이디</label> <input type="text" name="id" id="id"><br>
+						<label>패스워드</label> <input type="password" name="pw" id="pw"><br>
+						<input type="submit" value="로그인"> <input type="reset"
+							value="초기화">	
+					</form>
+					<oi><a href="회원가입register.html" target="_blank">회원가입</a></oi>
+					<oi><a href="비밀번호분실.html" target="_blank">비밀번호 분실</a></oi>
+					<br>
+				</div>
+			</aside>
+		</main>
+		<footer>2023.11월 406호 박선혜</footer>
+	</div>
+</body>
+</html>

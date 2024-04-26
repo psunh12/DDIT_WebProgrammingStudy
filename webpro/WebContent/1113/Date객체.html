@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date객체</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div{
+  height : auto;
+}
+</style>
+<script>
+//전역객체
+today1= new Date();
+today2= new Date(10000);
+today3= new Date("1999.3.25");
+today4= new Date(1999, 3-1, 25);
+const days= ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+proc1 = () => {
+   str= `${today1} <br>`;
+   str += `${today2} <br>`;
+   str += `${today3} <br>`;
+   str += `${today4} <br>`;
+   
+   document.getElementById('result1').innerHTML= str;
+}
+
+proc2 = () => {
+   //alert(today1.getDay());
+   day= today1.getDay();
+   switch(day){
+   case 0:
+      res= "일요일";
+      break;
+   case 1:
+      res= "월요일";
+      break;
+   case 2:
+      res= "화요일";
+      break;
+   case 3:
+      res= "수요일";
+      break;
+   case 4:
+      res= "목요일";
+      break;
+   case 5:
+      res= "금요일";
+      break;
+   case 6:
+      res= "토요일";
+      break;   
+   }
+   str= today1.toLocaleString();
+   str += `${res} 입니다`;
+   
+   document.getElementById('result2').innerHTML= str;   
+}
+
+proc3 = () => {
+   
+   //days[0], days[1], ... days[6]
+   day= today1.getDay();
+   
+   str= today1.toLocaleString();
+   str += " " + days[day] + "입니다 <br>";
+   
+   document.getElementById('result3').innerHTML= str;
+}
+ 
+// 1초가 지날때마다 시간을 갱신하여 출력한다.
+window.onload = function(){
+	
+	setInterval(() => {	currday = new Date();
+	
+	str = currday.toLocaleString();
+	
+	str += " "+days[today1.getDay()]+"입니다 ";
+	
+	document.getElementById('today').innerHTML=str;
+
+	},1000);
+
+}
+</script>
+</head>
+<body>
+<div id="today">
+</div>
+
+<div>
+ Date객체 생성
+ <br>
+ <br>
+ <input type="button" value="확인" onclick="proc1()">
+ <br>
+ <br>
+<div id="result1" class="result"></div>
+</div>
+
+<div>
+ 요일 구하기 - getDay(): 0~6을 리턴
+ <br>
+ switch~case 이용
+ <br>
+ <input type="button" value="확인" onclick="proc2()">
+ <br>
+ <br>
+<div id="result2" class="result"></div>
+</div>
+
+<div>
+ 요일 구하기 - getDay(): 0~6을 리턴
+ <br>
+  배열 이용  days= ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+ <br>
+ <input type="button" value="확인" onclick="proc3()">
+ <br>
+ <br>
+<div id="result3" class="result"></div>
+</div>
+
+</body>
+</html>

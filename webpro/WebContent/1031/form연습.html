@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h3{
+	text-align : center ;
+}
+form{
+	border : 5px double blue;
+	margin:30px auto;
+	padding : 20px;
+	width: 40%;
+}
+label{
+	display : inline-block;
+	width : 70px;
+	height: 30px;
+}
+#info{
+	vertical-align: top;
+}
+
+</style>
+</head>
+<body>
+<h3>회원가입 화면</h3>
+<br>
+<form>
+	<label>이름</label>
+	<input type="text" name="name" id="id"><br>
+	
+	<label>주소</label>
+	<input type="text" name="addr" id="addr"><br>
+	
+	<label>이메일</label>
+	<input type="email" name="mail" id="mail" pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"><br>
+	
+	
+	<label>성별</label>
+	<input type="radio" name="gender" class="gender">Male
+	<input type="radio" name="gender" class="gender">Female
+	<br>
+	
+	<label>내용</label><br>
+	<textarea rows="10" cols="50" name ="area" id="area"></textarea><br>
+	
+	<input type="submit">
+	<input type="reset">
+
+</form>
+</body>
+</html>

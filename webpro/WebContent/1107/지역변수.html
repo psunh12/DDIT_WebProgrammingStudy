@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부스타일 -->
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(a,b) {
+	var res=a+b;
+	
+	
+}
+
+window.onload=function(){
+	
+	// id=result1인 요소를 검색
+	var vres=document.getElementById('result1');
+	
+	var a=prompt("수1 입력");
+	var b=prompt("수2 입력");
+	
+	proc1(a,b);
+
+	
+// 	vres.innerHTML = a+" + "+b+" = "+res+ "<br>";
+//  res는 proc1()함수 내ㅇ에서 선언된 지역변수라서
+//여기 출력문엔 사용 불가(오류발생)
+	vres.innerHTML = `${a}+${b} = ${res} <br>`;
+	
+	
+	
+}
+</script>
+</head>
+<body>
+<input type= "button" value="확인">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+</body>
+</html>

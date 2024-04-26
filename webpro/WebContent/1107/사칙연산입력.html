@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+function add(x,y){
+	res=x+y;
+}
+function sub(x,y){
+	res=x-y;
+}
+function multi(x,y){
+	res=x*y;
+}
+function divide(x,y){
+	res=x/y;
+}
+
+function proc1(){
+	// 첫번째 수 입력 지역변수
+	let first=parseInt(prompt("첫번째 수 입력하세요"));
+	// 두번째 수 입력
+	let second=parseInt(prompt("두번째 수 입력하세요"));
+	// 연산자 입력
+	let op=prompt("연산자 입력");
+	// 연산자 비교 -if/swich
+	switch(op){
+	case '+':
+		add(first,second); break;	//add() 함수호출-리턴하지 않는다
+	case '-':
+		sub(first,second); break;	//sub() 함수호출-리턴하지 않는다
+	case '*':
+		multi(first,second); break;	//multi() 함수호출-리턴하지 않는다
+	case '/':
+		divide(first,second); break;//add() 함수호출-리턴하지 않는다	
+	}
+	
+	// 출력내용
+	str=`${first}${op}${second}=${res}`;
+	
+	//결과출력, css stylesheet에 넣을때!=innerHTML
+	document.getElementById('result1').innerHTML=str;
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<br>
+<br>
+<div id="result1"></div>
+</body>
+</html>

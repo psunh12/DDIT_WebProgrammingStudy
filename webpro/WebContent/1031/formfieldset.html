@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+fieldset{
+/* 	border=2px solid pink; */
+	border-color:skyblue pink;
+	border-width: 5px 10px 20px 30px;
+	
+	margin:20px;
+	
+	border-style: ridge;
+	border-top-style: solid;
+	border-bottom-color:pink;
+
+	width:30%;
+	background:yellow;
+		
+}
+
+label{
+	display: inline-block;
+	width :100px;
+	height :30px;
+}
+.gend{
+	width :40px;
+	height :30px;	
+}
+.fem{
+	margin-left:50px;
+}
+</style>
+
+<script>
+	function change(){
+		// color요소를 검색
+/* 		var vcol = docuement.getElementById('color')
+		var vcol = document.querySelector('#color')
+	
+		// 검색된 color요소에서 선택된 색상값을 가져온다.
+		var colvalue =vcol.value
+		
+*/
+
+		var colvalue =document.querySelector('#color').value;
+		
+		// 색상변경대상을 검색 - fieldset
+		fields= document.getElementsByTagName('fieldset');
+		
+		//field의 배경색을 바꾼다.
+		
+		for (var i = 0; i < fields.length; i++) {
+		fields[i].style.background = colvalue;
+			
+		}
+	}
+
+</script>
+</head>
+<body>
+<form action ="formfieldset.jsp" method="post">
+
+	
+	<fieldset>
+		<legend>기본 입력 사항</legend>
+		<label>이름</label>
+		<input type="text" name="name" id="name" placeholder="이름" required="required"> <br>
+		
+		<label>주소</label>
+		<input type="text" name="addr" id="addr"> <br>
+		
+		<label>전화번호</label>
+		<input type="text" name="tel" id="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="010-1111-2222"> <br>
+		
+		<label>이메일</label>
+		<input type="email" name="mail" id="mail" pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"> <br>
+		
+		<label>생일</label>
+		<input type="date" name="date" id="date">
+		
+		
+		<label>성별</label>
+		<input type="radio" name="gender" class="gender">남자
+		<input type="radio" name="gender" class="gender">여자
+		<br>
+	
+		<label class="gend">남자</label>
+		<input type="radio" name="gender2" class="gender">
+
+		<label class="gend fem">여자</label>
+		<input type="radio" name="gender2" class="gender">
+	</fieldset>
+	
+	<fieldset>
+		<legend>경력사항</legend>
+	<textarea rows="" cols=""></textarea>
+	<br>
+	<textarea rows="" cols=""></textarea>
+	</fieldset>
+	
+	<fieldset>
+		<legend>봉사활동</legend>
+		<textarea rows="" cols=""></textarea>
+		<br>
+		<textarea rows="" cols=""></textarea>
+	</fieldset>
+	<input type="submit">
+</form>
+
+	배경색변경
+	<input type="color" id="color" onchange="change()"><br>
+</body>
+</html>

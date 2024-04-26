@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div{
+	height : auto;
+}
+</style>
+<script>
+proc1 = () => {
+	
+	const arr = [];
+// 	const arr = new Array();
+	
+	while(true){
+		// 입력
+		input =prompt("이름을 입력하세요.");
+		if(input != null) input=input.trim();
+			
+		// break조건 - 공백이거나 null("취소버튼")
+		if(input == null || input =="") break;
+		
+		// 배열에 저장
+		arr.push(input);	
+		
+	}
+	
+	// 배열 출력 - 출력함수 호출
+	printArr('result1',arr)
+}
+// 출력함수
+printArr = (result, arr) => {
+	document.getElementById(result).innerHTML = arr;
+
+}
+
+proc2 = () => {
+	
+// 	const arr = [];
+	const arr = new Array();
+	
+	while(true){
+		// 정수 입력, 덧셈이 필요하면 parseInt 가 필요함
+		suvalue= prompt("숫자를 입력하세요.");
+		
+		// 중복여부 체크 -indexOf(입력)
+		a = arr.indexOf(suvalue);
+		if( a == -1){
+			//배열에 저장
+			arr.push(suvalue);
+		}
+		
+		// 배열갯수 5개이면 break;
+		if(arr.length >=5) break;
+	}
+	printArr('result2',arr);
+	
+
+}
+</script>
+</head>
+<body>
+
+<div>
+   <br>
+   prompt()를 이용하여 이름을 계속 입력받아 배열에 저장하고
+      출력하는 프로그램을 작성하시오<br>
+   -입력의 마지막은 공백 문자를 입력하거나 "취소" 버튼을 눌렀을때(null)로 한다.<br>
+   <br>
+   <input type="button" value= "확인" onclick="proc1()">
+   <br>
+   <br>
+<div id = "result1" class = "result"></div>
+</div>
+
+<div>
+   <br>
+	서로 중복되지 않은 정수 5개를 입력받아 출력하는 프로그램을 작성하시오.<br>
+   <br>
+   <input type="button" value= "확인" onclick="proc2()">
+   <br>
+   <br>
+<div id = "result2" class = "result"></div>
+</div>
+</body>
+</html>

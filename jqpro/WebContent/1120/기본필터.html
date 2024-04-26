@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<script>
+	$(function(){
+		// btn1검색
+		$('#btn1').on('click',function(){
+			$('#result1 li:first, #result1 li:last').css('background','yellow');
+			$('#result1 li:eq(5)').css('background','red');
+			$('#result1 li:lt(4)').css('font-size','2.0rem');
+		
+		})
+		$('#btn2').on('click',function(){
+			$('#result2 tr:even').css('background','lightgray');
+			$('#result2 tr:odd').css('background','pink');
+			$('#result2 tr:first').css({'background':'black', 'color':'white'});
+		})
+			
+	})
+</script>
+<style>
+div{
+	height : auto;
+}
+table{
+	border : 1px solid blue;
+}
+td{
+	width:500px;
+	height:70px;
+}
+</style>
+</head>
+<body>
+
+<div>
+   <br>
+   <br>
+   <input type="button" value= "확인" id="btn1">
+   <br>
+   <br>
+<div id = "result1" class = "result">
+	<ul>
+		<li> one </li>
+		<li> two </li>
+		<li>  three </li>
+		<li> four </li>
+		<li> five </li>
+		<li> six</li>
+		<li> seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ul>
+	
+	</div>
+</div>
+
+
+<div>
+   <br>
+   <br>
+   <input type="button" value= "확인" id="btn2">
+   <br>
+   <br>
+<div id = "result2" class = "result">
+ <table border="1">
+       <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+       
+        <tr>
+          <td>1</td>
+          <td>2</td>
+       </tr>
+   </table>
+	
+	</div>
+</div>
+</body>
+</html>

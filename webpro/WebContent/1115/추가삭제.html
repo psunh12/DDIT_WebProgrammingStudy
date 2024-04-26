@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css" />
+    <style>
+      div {
+        height: auto;
+      }
+    </style>
+    <script>
+      const arr = [
+        "hell",
+        "집에가고싶다",
+        "i wanna go home",
+        "우리집 고양이 츄르를 조아해",
+        "우리집 고양이 빵댕이 너무커",
+        "우예노 헤야노 네코와 츄르 다이스키",
+        "미노이",
+        "미노2",
+      ];
+      add = () => {
+        rand = parseInt(Math.random() * arr.length);
+
+        //arr[rand]생성 - textNode생성
+        tnode = document.createTextNode(arr[rand]);
+
+        //p태그 생성
+        ptag = document.createElement("p");
+
+        //p태그에 tnode를 추가한다.
+        ptag.appendChild(tnode);
+
+        //result1(검색)에 p태그를 추가한다.
+        document.getElementById("result1").appendChild(ptag);
+      };
+      dlt = () => {
+        pres = document.getElementById("result1");
+        pres.removeChild(pres.firstChild);
+      };
+
+      addDlt = () => {
+        //rand발생
+        rand = parseInt(Math.random() * arr.length);
+        //random발생 문자열 (선택된 문자열)로  textNode 생성
+        tnode = document.createTextNode(arr[rand]);
+        //input태그생성
+        // vinput = document.createElement("input");
+        // //타입설정(버튼타입)
+        // vinput.type = "button";
+        // //value설정 - 삭제
+        // vinput.value = "삭제";
+
+        //button 태그로 생성
+        vinput = document.createElement("button");
+        vinput.type = "button";
+        vinput.innerText = "삭제";
+        vinput.onclick = function () {
+          /*↑↑↑↑↑여기서 람다함수로 쓰면 this를 못읽어서 에러가 난다.*/
+          this.parentNode.remove();
+        };
+
+        //P태그 생성
+        ptag = document.createElement("p");
+        //P태그에 textNode추가
+        ptag.appendChild(tnode);
+        //p태그에 input태그 추가
+        ptag.appendChild(vinput);
+        //result2을 검색 - p태그를 추가한다.
+        pres = document.getElementById("result2").appendChild(ptag);
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <br />
+      <br />
+      <input type="button" value="추가" onclick="add()" />
+      <input type="button" value="삭제" onclick="dlt()" />
+      <div id="result1" class="result"></div>
+    </div>
+    <div>
+      <br />
+      <br />
+      <input type="button" value="추가삭제" onclick="addDlt()" />
+
+      <div id="result2" class="result"></div>
+    </div>
+  </body>
+</html>

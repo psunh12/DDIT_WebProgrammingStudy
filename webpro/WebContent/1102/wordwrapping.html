@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	border : 2px dotted green;
+	width : 500px;
+	height : 400px;
+	padding: 10px;
+	margin: 20px;
+	
+	background: orange;
+	
+ 	word-wrap:break-word;
+ 	
+ 	box-shadow: 20px 50px 35px yellow;
+ 	
+ 	border-width: 8px 5px medium thick;
+ 	/*medium :3px;
+ 		thick:5px
+ 		thin:1px;
+ 	*/
+ 	
+	border-top-style :double;
+	border-style : solid double;
+		
+}
+</style>
+
+<script>
+// const, var, let 써서 선언해도 되고 안써도 된다
+// 함수 안에서 아무것도 안쓰면:전역변수
+// 함수 바깥에서는 안쓰거나 쓰거나 해도 전역변수
+const str= ["happy","hello","good","HTML","CSS","JAVASCRIPT","ajax","doordie"];
+function appendStr() {
+	rand = parseInt(Math.random()*str.length);
+	
+	// 문자열을 선택
+	vstr = str[rand]
+
+	// 문자열 객체를 생성
+	strobj = document.createTextNode(vstr);
+	
+	//div를 검색 - // 추가
+	document.getElementById('d1').appendChild(strobj);
+	
+	
+}
+
+function changeColor(){
+	// id가 col인 요소를 검색-값을 가져온다. (value)
+	let colvalue=document.getElementById('col').value;
+	console.log(colvalue);
+	window.alert(colvalue);
+	
+	// id가 d1인 요소의 배경색을 변경한다.
+	var vd1=document.getElementById('d1');
+	vd1.style.background = colvalue;
+	
+// 	vd1.innerHTML=colvalue; // 색깔16진수가 포함되어있다
+	vd1.innerText = colvalue;	
+}
+</script>
+</head>
+<body>
+<p>동적으로 문자열을 발생해서 div에 추가한다</p>
+몇가지 문자열을 배열에 등록 시키고 랜덤으로 문자열을 선택한다<br>
+선택한 문자열을 추가하기 위해서<br>
+a = document.createTextNode('문자열');<br>
+div.appendChild(a)<br>
+배열과 Math.random()메소드 필요<br>
+<br>
+<br>
+<input type="button" value="확인" onclick="appendStr()">
+
+
+<div id="d1">
+Happy new Year!!<br>
+</div>
+
+
+<input type="color" id="col" onchange="changeColor()">
+</body>
+</html>

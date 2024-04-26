@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(a){
+	
+	// id=x인 요소 검색 - 값 가져오기
+	xvalue=parseInt(document.querySelector('#x').value);
+	// id=y인 요소 검색 - 값 가져오기
+	yvalue=parseInt(document.querySelector('#y').value);
+	
+	if(a == '+'){
+		res=xvalue + yvalue;
+	}else if(a=='-'){
+		res=xvalue - yvalue;
+	}else if(a=='*'){
+		res=xvalue * yvalue;
+	}else if(a=='/'){
+		res=xvalue / yvalue;
+	}
+	// 출력
+	// id=result 검색-출력
+	document.getElementById('result').value=res;
+}
+
+</script>
+</head>
+<body>
+첫번째 수<input type="text" id="x" value="10"><br>
+두번째 수<input type="text" id="y" value="20"><br>
+<br>
+결과<input type="text" id="result"><br><br>
+<input type="button" value="확인+" onclick="proc1('+')">
+<input type="button" value="확인-" onclick="proc1('-')">
+<input type="button" value="확인*" onclick="proc1('*')">
+<input type="button" value="확인/" onclick="proc1('/')">
+<br><br>
+<div id="result1"></div>
+</body>
+</html>

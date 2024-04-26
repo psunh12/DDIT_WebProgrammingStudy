@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+.result {
+   border: 2px dotted #B0E0E6;
+   background: white;
+   padding: 5px;
+   height: auto;
+   margin-top: 5px;
+}
+
+div {
+   background:#B0C4DE;	
+   height: auto;
+}
+</style>
+<script>
+// function proc1(){}
+
+proc1 = function(){
+
+	sum = 0;
+	strsum="";
+
+	while(true){
+		// 입력
+		su = parseInt(prompt("수 입력"));
+		
+		// 입력한 값을 누적 시킨다
+		sum += su;
+		strsum += su+" ";
+		//계속할래? false로 비교-break
+		yesno=confirm("계속할래???");
+		if(!yesno) break;
+		
+		}
+	
+	// 출력 내용
+	res = `합 = ${sum} <br>`;
+	res += `입력한 값들 : ${strsum}<br>`;
+	printValue('result1');
+} 
+// function printValue(result){}
+	printValue=function(result){
+		document.getElementById(result).innerHTML = res; 
+}
+proc2=function(){
+	//초기값이 while문 바깥에 있어야 원하는 값이 전부 출력된다.
+		res = "";
+	while(true){
+		// 입력
+		su=parseInt(prompt("숫자를 입력하세요."));
+		
+		// 구구단 작성	- for
+		res+=`*****+${su}+단*****<br>`
+		for(i=1;i<10;i++){
+// 			res += su+" * "+i+" = "+su*i+"<br>";// 출력 형식 만들기
+			res += `${su}*${i}=${su*i} <br>`;
+		}
+		
+		// 계속 할래?-false break
+		yesno=confirm("계속할래???");
+		if(!yesno) break;
+		
+		}
+	// while 끝
+	 // 출력 - printValue함수 호출
+	printValue('result2');
+	
+}	
+	
+</script>
+</head>
+<body>
+<div>
+	<input type="button" value="확인" onclick="proc1()">
+	<br> <br>
+	confirm():true/ false를 리턴하는 대화상자<br>
+	 입력한 수들을 누적시킨 후 출력-입력 후 계속여부를 체크한다.
+	<br>
+	<div id="result1" class="result"></div>	
+</div>
+
+<div>
+	<input type="button" value="확인" onclick="proc2()">
+	<br> <br>
+	confirm():true/ false를 리턴하는 대화상자<br>
+	 입력한 수의 구구단 출력 - 입력 후 계속여부를 체크한다.
+	<br>
+	<div id="result2" class="result"></div>	
+</div>
+</body>
+</html>

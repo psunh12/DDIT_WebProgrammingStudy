@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script src="../js/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$('#dd2 input[value=visible]').on('click', function(){
+		str = "*** vidible객체 ***<br>";
+		
+		$('#testForm *:visible').each(function(){
+			// alert( this.tagName	);
+			
+			if(this.tagName == "INPUT") {
+				str += this.tagName + "객체 : " +  $(this).attr('name') + " : " + 
+		              $(this).val() + "<br>" 
+			}else if(this.tagName != "BR") {
+				str += this.tagName  +"객체 : "  +   $(this).html() + "<br>" ;
+			}
+		})
+		
+		$('.visible').html(str);
+			 		
+	})
+	
+	
+	$('#dd2 input[value=hidden]').on('click', function(){
+		
+		str = "*** hidden객체 ***<br>";
+		 
+		
+		$('#testForm *:hidden').each(function(i,v){
+			 //alert(  this.tagName);
+			 
+			 if(this.tagName == "INPUT"){
+				 str += this.tagName + "객체 : " +  $(this).attr('name') + " : " + 
+				         $(this).val() + "<br>"
+			 }else {
+				str += this.tagName  +"객체 : "  +   $(this).html() + "<br>" ;
+			 }
+		})
+		
+		$('.hidden').html(str);
+		
+	})
+	
+		
+	 $('#dd1 input[value=visible]').on('click', function(){
+		 
+		 str = "";
+		 
+		 $('p:visible').each(function(a,b){
+			  str += $(this).text() + "<br>"
+		 })
+		 
+		 $('#visible').html(str);
+		 
+	 })
+	 
+	  $('#dd1 input[value=hidden]').on('click', function(){
+		  
+		  str = "";
+		  
+		 $('p:hidden').each(function(){
+			str +=  $(this).text() + "<br>"
+		 })
+		 
+		 $('#hidden').html(str);
+		
+	  })
+	  
+	  
+	  
+	  
+	  
+	  
+})  //
+</script>
+
+
+<style>
+div{
+  height : auto;
+}
+</style>
+</head>
+<body>
+
+<div id="dd1">
+  <br>
+  <br>
+   <input type="button" value="hidden" >
+   <input type="button" value="visible" >
+  <br>
+  <br>
+  <div id="result1" class="result">
+      <p> 보이는 문단</p>
+	  <p style="visibility:hidden;">숨겨진 문단</p>
+	  <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+	  <p style="opacity:0;"> 투명한 문단</p>
+   </div>
+   
+   <div id="hidden"></div>
+   <div id="visible"></div>
+</div>
+
+<div id="dd2">
+  <br>
+  <br>
+   <input type="button" value="hidden" >
+   <input type="button" value="visible" >
+  <br>
+  <br>
+  <div id="result2" class="result">
+       <form id="testForm"> 
+			<input type="hidden" name="userAge" value="33">
+			<input type="hidden" name="userCity" value="대전">
+			
+			I D : <input type="text" name="userID" value="hong">  
+			<span style="display:none">ID가 중복됩니다. </span> <br>  
+			
+			이름 : <input type="text" name="userName" value="홍길동">   
+			<span style="visibility:hidden">이름을 입력하세요</span><br> 
+			 
+			성별 : <input type="radio" name="sung" value="남" checked>남자  
+			<input type="radio" name="sung" value="여">여자  
+		</form>
+  </div>
+   <div class="hidden"></div>
+   <div class="visible"></div>
+</div>
+
+
+</body>
+</html>
+

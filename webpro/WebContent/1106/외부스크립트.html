@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부스타일 -->
+<link rel="stylesheet" href="../css/public.css">
+<!--  외부스트립트 -->
+<script src= "../js/public.js"> </script>
+
+<style>
+/*내부스타일*/
+div{
+/* 넘치면 스크롤바 만든다 */
+/* 	overflow:auto; */
+	height : auto; 
+}
+</style>
+
+<script>
+/*내부스크립트*/
+function calc(){
+	
+// 	var dan; // 생략가능
+// 	dan =7;	// 만들면서 동시에 값을 대입함, let, var 생략가능
+
+	// 스크립트 입력문:prompt
+	let dan = window.prompt("몇단을 출력할까요");
+
+	str=""; // 초기값 문자로 줌 (값+문자=문자)
+	
+	for (i = 1; i < 10; i++) {
+		str += dan + " * "+ i +" = "+ dan*i + "<br>";
+	}
+	
+	// id = res1를 검색
+	var vres1=document.querySelector('#res1');
+	// 출력, innerText를 사용하면 <br>태그가 다 나온다.
+	vres1.innerHTML = str;
+	
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인외부" onclick="proc1()">
+<br><br>
+
+<input type="button" value="확인inline" onclick="window.alert('hello~~')">
+<br><br>
+
+<input type="button" value="확인내부" onclick="calc()">
+<br><br>
+
+<div id="res1"></div>
+</body>
+</html>
